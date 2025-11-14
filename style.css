@@ -1,0 +1,67 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0d0d0d;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    padding: 40px 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Socials */
+.socials {
+    max-width: 700px;
+    margin: auto;
+}
+
+.socials h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Social Cards */
+.social-card {
+    background: #141414;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: 1px solid #1f1f1f;
+    font-size: 1rem;
+    display: block;
+    text-decoration: none;
+    color: white;
+    transition: 0.25s ease;
+}
+
+.social-card:hover {
+    background: #1c1c1c;
+    transform: translateY(-2px);
+}
+
+/* Card without link */
+.no-link {
+    cursor: default;
+}
