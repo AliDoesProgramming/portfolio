@@ -22,6 +22,16 @@ body {
     font-size: 2.6rem;
     font-weight: 700;
     letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.header .description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #cccccc;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
 /* Socials */
