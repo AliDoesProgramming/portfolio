@@ -75,3 +75,44 @@ body {
 .no-link {
     cursor: default;
 }
+
+/* Past Work / Gallery */
+.past-work {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.past-work h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    background: #141414;
+    padding: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1f1f1f;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
