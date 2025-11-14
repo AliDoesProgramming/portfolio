@@ -71,14 +71,13 @@ body {
     transform: translateY(-2px);
 }
 
-/* Card without link */
 .no-link {
     cursor: default;
 }
 
 /* Past Work / Gallery */
 .past-work {
-    max-width: 1400px;  /* allow bigger gallery */
+    max-width: 1400px;
     margin: 60px auto;
     padding: 0 20px;
 }
@@ -91,32 +90,52 @@ body {
 }
 
 .gallery {
-    display: flex;          /* use flex instead of grid */
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
 }
 
 .gallery-item {
-    background: #141414;
-    padding: 10px;
+    cursor: pointer;
+    max-width: 500px; /* bigger image bubbles */
+    width: 100%;
     border-radius: 16px;
     border: 1px solid #1f1f1f;
-    overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-    flex: 0 0 auto;        /* don’t shrink */
-    max-width: none;        /* remove grid scaling constraints */
-}
-
-.gallery-item img {
-    display: block;
-    border-radius: 12px;
-    width: auto;            /* show full resolution width */
-    height: auto;
-    max-height: 500px;      /* optional: limits extremely tall images */
 }
 
 .gallery-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+
+/* Lightbox */
+#lightbox {
+    display: none; /* hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+}
+
+#close {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
 }
