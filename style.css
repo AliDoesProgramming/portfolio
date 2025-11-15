@@ -98,7 +98,7 @@ body {
 
 .gallery-item {
     cursor: pointer;
-    max-width: 500px; /* bigger image bubbles */
+    max-width: 900px; /* bigger image bubbles */
     width: 100%;
     border-radius: 16px;
     border: 1px solid #1f1f1f;
