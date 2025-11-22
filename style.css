@@ -107,14 +107,15 @@ body {
 }
 
 .gallery-item {
-    width: 100%;
-    aspect-ratio: 16 / 9;   /* Forces perfect 16:9 */
-    object-fit: cover;      /* Crops while keeping image centered */
+    width: 500px;         /* fixed consistent width */
+    aspect-ratio: 16 / 9; /* force perfect 16:9 shape */
+    object-fit: cover;    /* crop images cleanly without distortion */
     border-radius: 16px;
     border: 1px solid #1f1f1f;
     cursor: pointer;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 
 .gallery-item:hover {
     transform: translateY(-5px);
