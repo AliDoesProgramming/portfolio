@@ -37,6 +37,7 @@ body {
 .header .description2 {
     font-size: 1.6rem;
     font-weight: 400;
+    font-color: #2bfb3f;
     color: #2bfb3f;
     max-width: 700px;
     margin: 0 auto;
