@@ -107,14 +107,14 @@ body {
 }
 
 .gallery-item {
-    cursor: pointer;
-    max-width: 700px; /* bigger image bubbles */
-    width: 100%;
+    width: auto;        /* Let image decide */
+    height: auto;       /* Keep natural proportions */
+    max-width: 100%;    /* Prevent overflow on small screens */
     border-radius: 16px;
-    border: 2px solid #1f1f1f;
+    border: 1px solid #1f1f1f;
+    cursor: pointer;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
 .gallery-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.6);
