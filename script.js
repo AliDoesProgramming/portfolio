@@ -19,12 +19,18 @@ lightbox.addEventListener("click", e => {
     if (e.target === lightbox) lightbox.style.display = "none";
 });
 
-/* NAV SMOOTH SCROLL */
+/* NAVIGATION SCROLL USING DATA-TARGET */
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        target.scrollIntoView({ behavior: "smooth" });
+        const targetId = link.getAttribute('data-target');
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        const navHeight = document.querySelector('.navbar').offsetHeight;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     });
 });
 
