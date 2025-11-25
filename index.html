@@ -8,6 +8,19 @@
 </head>
 <body>
 
+  <!-- NAVBAR -->
+  <nav class="navbar reveal">
+      <div class="nav-left">
+          <a href="#info" class="nav-link">Info</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="#pastwork" class="nav-link">Past Work</a>
+      </div>
+
+      <div class="nav-right">
+          <span class="for-hire">FOR HIRE!</span>
+      </div>
+  </nav>
+
   <!-- Header -->
   <header class="header reveal">
       <h1>Welcome to my Portfolio!</h1>
@@ -21,9 +34,9 @@
       <p class="description2">*Currently up For Hire!*</p>
   </header>
 
-  <!-- Payment + Contact (uses existing Socials inside Contact) -->
-  <section class="info-section">
-      <div class="info-box reveal"> <!-- Payment (left) -->
+  <!-- INFO SECTION (Payment + Contact now vertically stacked) -->
+  <section id="info" class="big-section reveal">
+      <div class="info-box big-box">
           <h2>Payment Information</h2>
           <p>
             • Preferred: PayPal<br>
@@ -34,28 +47,28 @@
           </p>
       </div>
 
-      <div class="info-box reveal"> <!-- Contact (right) re-uses your Socials) -->
+      <div id="contact" class="info-box big-box">
           <h2>Contact Details</h2>
 
           <div class="social-links contact-links">
-              <a href="https://www.roblox.com/users/2936203822/profile" target="_blank" class="social-card">
+              <a href="https://www.roblox.com/users/2936203822/profile" target="_blank" class="social-card big-card">
                   <span>Roblox Profile</span>
               </a>
 
-              <div class="social-card no-link">
+              <div class="social-card big-card no-link">
                   <span>Discord: @aligoec</span>
               </div>
 
-              <a href="mailto:ali.goec88@gmail.com" class="social-card">
+              <a href="mailto:ali.goec88@gmail.com" class="social-card big-card">
                   <span>Email: ali.goec88@gmail.com</span>
               </a>
           </div>
       </div>
   </section>
 
-  <!-- Past Work (inside the same styled container) -->
-  <section class="past-work wrapper reveal">
-      <div class="container-box">
+  <!-- Past Work -->
+  <section id="pastwork" class="past-work wrapper reveal big-section">
+      <div class="container-box big-box">
           <h2>Past Work</h2>
           <div class="gallery">
               <img src="Screenshot 2025-11-22 214435.png" alt="Work 1" class="gallery-item">
