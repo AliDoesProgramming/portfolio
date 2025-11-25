@@ -1,3 +1,4 @@
+// Lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const galleryItems = document.querySelectorAll('.gallery-item');
@@ -14,9 +15,15 @@ closeBtn.addEventListener('click', () => {
     lightbox.style.display = 'none';
 });
 
-// Click outside image closes lightbox
 lightbox.addEventListener('click', e => {
     if (e.target === lightbox) {
         lightbox.style.display = 'none';
     }
+});
+
+// Add stagger animations to all elements with class "animate"
+window.addEventListener("load", () => {
+    document.querySelectorAll(".animate").forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.25}s`;
+    });
 });
