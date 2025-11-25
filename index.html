@@ -6,83 +6,99 @@
     <title>Alii — Portfolio</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar reveal">
-      <div class="nav-left">
-          <a href="#info" class="nav-link">Info</a>
-          <a href="#contact" class="nav-link">Contact</a>
-          <a href="#pastwork" class="nav-link">Past Work</a>
-      </div>
+<body id="top">
 
-      <div class="nav-right">
-          <span class="for-hire">FOR HIRE!</span>
-      </div>
-  </nav>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a class="nav-link" href="#top">Info</a>
+            <a class="nav-link" href="#payment">Payment</a>
+            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="#work">Past Work</a>
+        </div>
 
-  <!-- Header -->
-  <header class="header reveal">
-      <h1>Welcome to my Portfolio!</h1>
-      <p class="description">
-        Hi! I’m Alii, a Roblox UI/UX designer and graphic artist. I create clean,
-        modern interfaces and eye-catching graphics for games and projects.
-        I have been developing games on Roblox for about 5 years, and designing UI professionally for 1–2 years now.
-        I use Photopea and mainly Figma for graphic design.
-        I have contributed to about 60k Visits on Roblox.
-      </p>
-      <p class="description2">*Currently up For Hire!*</p>
-  </header>
+        <div class="for-hire-wrapper">
+            <span class="status-label">Status:</span>
+            <span class="for-hire">For Hire!</span>
+        </div>
+    </nav>
 
-  <!-- INFO SECTION (Payment + Contact now vertically stacked) -->
-  <section id="info" class="big-section reveal">
-      <div class="info-box big-box">
-          <h2>Payment Information</h2>
-          <p>
-            • Preferred: PayPal<br>
-            • Robux accepted in some cases<br>
-            • Pricing depends on project complexity<br>
-            • Small jobs: no upfront payment required<br>
-            • I work for really cheap compared to others
-          </p>
-      </div>
 
-      <div id="contact" class="info-box big-box">
-          <h2>Contact Details</h2>
+    <!-- HEADER -->
+    <header class="header reveal">
+        <h1>Welcome to my Portfolio!</h1>
 
-          <div class="social-links contact-links">
-              <a href="https://www.roblox.com/users/2936203822/profile" target="_blank" class="social-card big-card">
-                  <span>Roblox Profile</span>
-              </a>
+        <p class="description">
+            Hi! I’m Alii, a Roblox UI/UX designer and graphic artist.<br><br>
+            I create clean, modern interfaces and eye-catching graphics for games and projects.<br><br>
+            I have been developing games on Roblox for about 5 years, and designing UI professionally for 1–2 years now.<br>
+            I use Photopea and mainly Figma for graphic design.<br><br>
+            I have contributed to about 60k visits on Roblox.
+        </p>
 
-              <div class="social-card big-card no-link">
-                  <span>Discord: @aligoec</span>
-              </div>
+        <p class="description2">*Currently up For Hire!*</p>
+    </header>
 
-              <a href="mailto:ali.goec88@gmail.com" class="social-card big-card">
-                  <span>Email: ali.goec88@gmail.com</span>
-              </a>
-          </div>
-      </div>
-  </section>
 
-  <!-- Past Work -->
-  <section id="pastwork" class="past-work wrapper reveal big-section">
-      <div class="container-box big-box">
-          <h2>Past Work</h2>
-          <div class="gallery">
-              <img src="Screenshot 2025-11-22 214435.png" alt="Work 1" class="gallery-item">
-              <img src="Screenshot 2025-11-22 201814.png" alt="Work 2" class="gallery-item">
-              <img src="Screenshot 2025-11-22 191518.png" alt="Work 3" class="gallery-item">
-          </div>
-      </div>
-  </section>
+    <!-- PAYMENT + CONTACT -->
+    <section class="big-section">
 
-  <!-- Lightbox -->
-  <div id="lightbox" aria-hidden="true">
-      <button id="close" aria-label="Close">&times;</button>
-      <img id="lightbox-img" src="" alt="Expanded Work">
-  </div>
+        <!-- Payment -->
+        <div class="info-box reveal" id="payment">
+            <h2>Payment Information</h2>
+            <p>
+                • Preferred: PayPal<br>
+                • Robux accepted in some cases<br>
+                • Pricing depends on project complexity<br>
+                • No upfront payment for small jobs<br>
+                • Extremely affordable compared to others
+            </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="info-box reveal" id="contact">
+            <h2>Contact Details</h2>
+
+            <div class="social-links contact-links">
+                <a href="https://www.roblox.com/users/2936203822/profile" 
+                   target="_blank" class="social-card">
+                   Roblox Profile
+                </a>
+
+                <div class="social-card no-link">
+                    Discord: @aligoec
+                </div>
+
+                <a href="mailto:ali.goec88@gmail.com" class="social-card">
+                    Email: ali.goec88@gmail.com
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PAST WORK -->
+    <section class="past-work reveal" id="work">
+        <div class="container-box">
+            <h2>Past Work</h2>
+
+            <div class="gallery">
+                <img src="Screenshot 2025-11-22 214435.png" alt="Work 1" class="gallery-item">
+                <img src="Screenshot 2025-11-22 201814.png" alt="Work 2" class="gallery-item">
+                <img src="Screenshot 2025-11-22 191518.png" alt="Work 3" class="gallery-item">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+        <button id="close">&times;</button>
+        <img id="lightbox-img" src="" alt="Expanded">
+    </div>
+
 
 <script src="script.js"></script>
 </body>
