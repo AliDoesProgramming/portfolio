@@ -13,7 +13,6 @@ body {
     scroll-behavior: smooth;
 }
 
-
 /* NAVBAR */
 .navbar {
     width: 100%;
@@ -27,6 +26,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
+}
+
+.navbar-spacer {
+    height: 80px; /* same as navbar height */
 }
 
 .nav-left {
@@ -54,24 +57,23 @@ body {
 }
 
 .status-label {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #fff;
-    opacity: .85;
+    font-family: "Inter", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
 }
 
 .for-hire {
+    font-family: "Inter", sans-serif;
     font-size: 1.6rem;
     font-weight: 900;
     color: #2bff3d;
     text-shadow: 0 0 6px #2bff3d;
 }
 
-
 /* HEADER */
 .header {
     text-align: center;
-    padding-top: 140px;
     margin-bottom: 50px;
 }
 
@@ -95,10 +97,9 @@ body {
     margin-top: 20px;
 }
 
-
 /* GENERAL SECTION SPACING */
 section, header {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 80px; /* match navbar height */
 }
 
 .big-section,
@@ -109,8 +110,7 @@ section, header {
     margin: 0 auto;
 }
 
-
-/* INFO BOXES (Payment + Contact) */
+/* INFO BOXES */
 .info-box {
     background: rgba(0,0,0,0.45);
     border: 1px solid #1f1f1f;
@@ -130,7 +130,6 @@ section, header {
     color: #d2d2d2;
     line-height: 1.65;
 }
-
 
 /* CONTACT SOCIAL CARDS */
 .social-links {
@@ -159,7 +158,6 @@ section, header {
     cursor: default;
 }
 
-
 /* PAST WORK CONTAINER */
 .container-box {
     background: rgba(0,0,0,0.45);
@@ -174,7 +172,6 @@ section, header {
     text-align: center;
     margin-bottom: 30px;
 }
-
 
 /* GALLERY */
 .gallery {
@@ -198,7 +195,6 @@ section, header {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,.6);
 }
-
 
 /* LIGHTBOX */
 #lightbox {
@@ -227,7 +223,6 @@ section, header {
     border: none;
     cursor: pointer;
 }
-
 
 /* REVEAL ANIMATION */
 .reveal {
