@@ -1,4 +1,4 @@
-/* ========== GLOBAL RESET ========== */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -7,14 +7,14 @@
 
 body {
     background: #060606;
-    color: #ffffff;
+    color: #fff;
     font-family: "Inter", sans-serif;
-    padding: 40px 20px;
+    padding: 0;
     scroll-behavior: smooth;
 }
 
 
-/* ========== NAVBAR ========== */
+/* NAVBAR */
 .navbar {
     width: 100%;
     padding: 20px 40px;
@@ -27,7 +27,6 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
-    border-radius: 0 0 12px 12px;
 }
 
 .nav-left {
@@ -36,16 +35,29 @@ body {
 }
 
 .nav-link {
-    color: #eaeaea;
     font-size: 1.25rem;
-    font-weight: 600;
+    color: #eaeaea;
     text-decoration: none;
-    transition: 0.25s ease;
+    font-weight: 600;
+    transition: .25s ease;
 }
 
 .nav-link:hover {
     color: #00ff62;
     transform: translateY(-2px);
+}
+
+.for-hire-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-label {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    opacity: .85;
 }
 
 .for-hire {
@@ -56,41 +68,51 @@ body {
 }
 
 
-/* ========== HEADER ========== */
+/* HEADER */
 .header {
     text-align: center;
+    padding-top: 140px;
     margin-bottom: 50px;
 }
 
 .header h1 {
     font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-weight: 800;
+    margin-bottom: 25px;
 }
 
-.header .description {
+.description {
     font-size: 1.4rem;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     color: #d0d0d0;
-    line-height: 1.7;
+    line-height: 1.85;
 }
 
-.header .description2 {
+.description2 {
     font-size: 1.8rem;
     color: #2bfb3f;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 
-/* ========== INFO SECTION (STACKED) ========== */
-.big-section {
-    max-width: 900px;
-    margin: 70px auto;
+/* GENERAL SECTION SPACING */
+section, header {
+    scroll-margin-top: 120px;
 }
 
+.big-section,
+.info-box,
+.container-box {
+    max-width: 1100px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+/* INFO BOXES (Payment + Contact) */
 .info-box {
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0,0,0,0.45);
     border: 1px solid #1f1f1f;
     border-radius: 14px;
     padding: 34px 40px;
@@ -105,12 +127,12 @@ body {
 
 .info-box p {
     font-size: 1.35rem;
-    line-height: 1.65;
     color: #d2d2d2;
+    line-height: 1.65;
 }
 
 
-/* ========== CONTACT SOCIAL CARDS ========== */
+/* CONTACT SOCIAL CARDS */
 .social-links {
     display: flex;
     flex-direction: column;
@@ -123,9 +145,8 @@ body {
     border-radius: 12px;
     border: 2px solid #1f1f1f;
     font-size: 1.3rem;
-    display: block;
-    text-decoration: none;
     color: white;
+    text-decoration: none;
     transition: 0.25s ease;
 }
 
@@ -139,9 +160,9 @@ body {
 }
 
 
-/* ========== PAST WORK CONTAINER ========== */
+/* PAST WORK CONTAINER */
 .container-box {
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0,0,0,0.45);
     border: 1px solid #1f1f1f;
     border-radius: 14px;
     padding: 34px 40px;
@@ -155,7 +176,7 @@ body {
 }
 
 
-/* ========== GALLERY ========== */
+/* GALLERY */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -165,28 +186,28 @@ body {
 
 .gallery-item {
     width: 500px;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16/9;
     object-fit: cover;
     border-radius: 16px;
     border: 1px solid #1f1f1f;
     cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform .25s, box-shadow .25s;
 }
 
 .gallery-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    box-shadow: 0 15px 30px rgba(0,0,0,.6);
 }
 
 
-/* ========== LIGHTBOX ========== */
+/* LIGHTBOX */
 #lightbox {
     display: none;
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.9);
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     z-index: 1000;
 }
 
@@ -202,18 +223,17 @@ body {
     right: 30px;
     font-size: 3rem;
     color: white;
-    cursor: pointer;
-    z-index: 1001;
     background: none;
     border: none;
+    cursor: pointer;
 }
 
 
-/* ========== REVEAL ANIMATION ========== */
+/* REVEAL ANIMATION */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
-    transition: all 0.7s ease-out;
+    transition: opacity .7s ease-out, transform .7s ease-out;
 }
 
 .reveal.visible {
