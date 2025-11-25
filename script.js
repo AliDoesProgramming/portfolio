@@ -19,7 +19,6 @@ lightbox.addEventListener("click", e => {
     if (e.target === lightbox) lightbox.style.display = "none";
 });
 
-
 /* NAV SMOOTH SCROLL */
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', e => {
@@ -28,7 +27,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
         target.scrollIntoView({ behavior: "smooth" });
     });
 });
-
 
 /* REVEAL ON SCROLL */
 const reveals = document.querySelectorAll('.reveal');
