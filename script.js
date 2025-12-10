@@ -50,20 +50,27 @@ const logo = document.querySelector('.nav-logo');
 
 // random fonts that exist on all systems
 const fonts = ["Arial, sans-serif", "Verdana, sans-serif", "Times New Roman, serif", "Georgia, serif", "Courier New, monospace","Lucida Console, monospace","Consolas, monospace","Monaco, monospace","Source Code Pro, monospace",];
+let lastRandomFont = null;
 let isDancing = true;
 
 function changeLogoFont() {
     if (isDancing) {
-        // pick a random system font
-        const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
-        logo.style.fontFamily = randomFont;
+        // Pick a random font that is NOT the same as the last one
+        let newFont;
+        do {
+            newFont = fonts[Math.floor(Math.random() * fonts.length)];
+        } while (newFont === lastRandomFont);
+
+        lastRandomFont = newFont;
+        logo.style.fontFamily = newFont;
+
     } else {
-        // back to Dancing Script
+        // Switch back to Dancing Script
         logo.style.fontFamily = "'Dancing Script', cursive";
     }
+
     isDancing = !isDancing; // toggle
 }
-
 // change font every 2.5 seconds
 setInterval(changeLogoFont, 250);
 
