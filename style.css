@@ -91,7 +91,7 @@ body {
 
 /* SPACER FOR NAVBAR */
 .navbar-spacer {
-    height: 80px; /* same as navbar height */
+    height: 55px; /* same as navbar height */
 }
 
 /* HEADER */
@@ -108,7 +108,7 @@ body {
 
 .description {
     font-size: 1.4rem;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     color: #d0d0d0;
     line-height: 1.85;
