@@ -26,13 +26,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
+    position: relative;
 }
 
-.navbar-spacer {
-    height: 80px; /* same as navbar height */
-}
-
-.nav-left {
+.nav-left, .nav-right {
     display: flex;
     gap: 26px;
 }
@@ -48,6 +45,19 @@ body {
 .nav-link:hover {
     color: #00ff62;
     transform: translateY(-2px);
+}
+
+/* NAVBAR LOGO */
+.nav-logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00ff62;
+    text-shadow: 0 0 8px #00ff62;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
 }
 
 .for-hire-wrapper {
@@ -71,6 +81,11 @@ body {
     text-shadow: 0 0 6px #2bff3d;
 }
 
+/* SPACER FOR NAVBAR */
+.navbar-spacer {
+    height: 80px; /* same as navbar height */
+}
+
 /* HEADER */
 .header {
     text-align: center;
@@ -89,12 +104,6 @@ body {
     margin: 0 auto;
     color: #d0d0d0;
     line-height: 1.85;
-}
-
-.description2 {
-    font-size: 1.8rem;
-    color: #2bfb3f;
-    margin-top: 20px;
 }
 
 /* GENERAL SECTION SPACING */
