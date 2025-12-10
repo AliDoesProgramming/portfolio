@@ -49,7 +49,7 @@ function revealOnScroll() {
 const logo = document.querySelector('.nav-logo');
 
 // random fonts that exist on all systems
-const fonts = ["Arial, sans-serif", "Verdana, sans-serif", "Times New Roman, serif", "Georgia, serif", "Courier New, monospace"];
+const fonts = ["Arial, sans-serif", "Verdana, sans-serif", "Times New Roman, serif", "Georgia, serif", "Courier New, monospace","Lucida Console, monospace","Consolas, monospace","Monaco, monospace","Source Code Pro, monospace",];
 let isDancing = true;
 
 function changeLogoFont() {
