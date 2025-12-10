@@ -65,7 +65,7 @@ function changeLogoFont() {
 }
 
 // change font every 2.5 seconds
-setInterval(changeLogoFont, 2500);
+setInterval(changeLogoFont, 250);
 
 
 window.addEventListener("scroll", revealOnScroll);
