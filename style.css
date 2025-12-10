@@ -29,11 +29,6 @@ body {
     position: relative;
 }
 
-.nav-left, .nav-right {
-    display: flex;
-    gap: 26px;
-}
-
 .nav-link {
     font-size: 1.25rem;
     color: #eaeaea;
@@ -52,7 +47,6 @@ body {
     text-shadow: 0 0 10px #00ff62;
     position: absolute;
     left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%); /* perfectly centered vertically and horizontally */
     pointer-events: none; /* clicks go through */
 }
