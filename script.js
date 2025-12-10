@@ -46,5 +46,23 @@ function revealOnScroll() {
     });
 }
 
+let prevScrollPos = window.pageYOffset;
+const navbar = document.querySelector('.navbar');
+
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+
+    if (prevScrollPos > currentScrollPos) {
+        // scrolling up → show navbar
+        navbar.style.top = "0";
+    } else {
+        // scrolling down → hide navbar
+        navbar.style.top = "-100px"; // hide by moving up
+    }
+
+    prevScrollPos = currentScrollPos;
+}
+
+
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
