@@ -43,6 +43,20 @@ body {
     cursor: pointer;
 }
 
+/* NAVBAR LOGO */
+.nav-logo {
+    font-family: 'Dancing Script', cursive; /* new font */
+    font-size: 3rem; /* bigger logo */
+    font-weight: 700;
+    color: #00ff62;
+    text-shadow: 0 0 10px #00ff62;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* perfectly centered vertically and horizontally */
+    pointer-events: none; /* clicks go through */
+}
+
 .nav-logo,
 .for-hire-wrapper {
     cursor: default; /* No pointer cursor on Alii logo or status */
