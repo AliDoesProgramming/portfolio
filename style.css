@@ -176,6 +176,7 @@ section, header {
 
 /* PAST WORK CONTAINER */
 .container-box {
+    width: 80%
     background: rgba(0,0,0,0.45);
     border: 1px solid #1f1f1f;
     border-radius: 14px;
