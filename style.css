@@ -13,6 +13,11 @@ body {
     scroll-behavior: smooth;
 }
 
+.nav-left {
+    display: flex;
+    gap: 28px;
+}
+
 /* NAVBAR */
 .navbar {
     width: 100%;
