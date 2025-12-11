@@ -49,7 +49,45 @@ function revealOnScroll() {
 const logo = document.querySelector('.nav-logo');
 
 // random fonts that exist on all systems
-const fonts = ["Arial, sans-serif", "Verdana, sans-serif", "Times New Roman, serif", "Georgia, serif", "Courier New, monospace","Lucida Console, monospace","Consolas, monospace","Monaco, monospace","Source Code Pro, monospace",];
+const fonts = [
+    "Arial, sans-serif",
+    "Verdana, sans-serif",
+    "Times New Roman, serif",
+    "Georgia, serif",
+    "Courier New, monospace",
+    "Lucida Console, monospace",
+    "Consolas, monospace",
+    "Monaco, monospace",
+    "Source Code Pro, monospace",
+
+    // Extra Sans-Serif
+    "Helvetica, sans-serif",
+    "Tahoma, sans-serif",
+    "Trebuchet MS, sans-serif",
+    "Gill Sans, sans-serif",
+    "Segoe UI, sans-serif",
+    "Futura, sans-serif",
+    "Optima, sans-serif",
+
+    // Extra Serif
+    "Garamond, serif",
+    "Cambria, serif",
+    "Baskerville, serif",
+    "Palatino Linotype, serif",
+    "Didot, serif",
+
+    // Extra Monospace
+    "Menlo, monospace",
+    "Ubuntu Mono, monospace",
+    "DejaVu Sans Mono, monospace",
+
+    // Display Fonts (still system fonts, very safe)
+    "Impact, sans-serif",
+    "Copperplate, serif",
+    "Rockwell, serif",
+    "Franklin Gothic Medium, sans-serif"
+];
+
 let lastRandomFont = null;
 let isDancing = true;
 
