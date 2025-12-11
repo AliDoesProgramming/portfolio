@@ -72,7 +72,7 @@ function changeLogoFont() {
     isDancing = !isDancing; // toggle
 }
 // change font every 2.5 seconds
-setInterval(changeLogoFont, 250);
+setInterval(changeLogoFont, 175);
 
 
 window.addEventListener("scroll", revealOnScroll);
