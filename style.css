@@ -13,15 +13,17 @@ body {
     scroll-behavior: smooth;
 }
 
+/* NAV LEFT */
 .nav-left {
     display: flex;
-    gap: 28px;
+    gap: 26px;
+    align-items: center;
 }
 
 /* NAVBAR */
 .navbar {
     width: 100%;
-    padding: 20px 40px;
+    padding: 0 36px;
     background: rgba(0,0,0,0.55);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -30,16 +32,24 @@ body {
     align-items: center;
     position: fixed;
     top: 0;
+    left: 0;
+    height: 80px;
     z-index: 999;
 }
 
+/* NAV LINKS */
 .nav-link {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: #eaeaea;
     text-decoration: none;
-    font-weight: 600;
-    transition: .25s ease;
+    font-weight: 700;
+    transition: transform 0.22s ease, color 0.22s ease;
     cursor: pointer;
+    display: inline-block; /* ensures transform works */
+}
+.nav-link:hover {
+    color: #00ff62;
+    transform: translateY(-3px);
 }
 
 /* NAVBAR LOGO */
@@ -51,38 +61,27 @@ body {
     text-shadow: 0 0 10px #00ff62;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* only X, not Y */
     top: 50%;
-    transform: translate(-50%, -50%); /* fixes vertical centering */
+    transform: translate(-50%, -50%);
     pointer-events: none;
+    white-space: nowrap;
 }
 
-.nav-logo,
-.for-hire-wrapper {
-    cursor: default; /* No pointer cursor on Alii logo or status */
-}
-
-.nav-link:hover {
-    color: #00ff62;
-    transform: translateY(-2px);
-}
-
+/* STATUS / FOR HIRE (desktop) */
 .for-hire-wrapper {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-
 .status-label {
     font-family: "Inter", sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: #ffffff;
 }
-
 .for-hire {
     font-family: "Inter", sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.05rem;
     font-weight: 900;
     color: #2bff3d;
     text-shadow: 0 0 6px #2bff3d;
@@ -98,13 +97,11 @@ body {
     text-align: center;
     margin-bottom: 50px;
 }
-
 .header h1 {
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 25px;
 }
-
 .description {
     font-size: 1.4rem;
     max-width: 1200px;
@@ -115,13 +112,14 @@ body {
 
 /* GENERAL SECTION SPACING */
 section, header {
-    scroll-margin-top: 80px; /* match navbar height */
+    scroll-margin-top: 90px; /* match navbar height */
 }
 
+/* CONTAINERS */
 .big-section,
 .info-box,
 .container-box {
-    max-width: 1100px;
+    max-width: 1200px;
     width: 95%;
     margin: 0 auto;
 }
@@ -135,25 +133,11 @@ section, header {
     backdrop-filter: blur(4px);
     margin-bottom: 40px;
 }
-
-.info-box h2 {
-    font-size: 2.1rem;
-    margin-bottom: 20px;
-}
-
-.info-box p {
-    font-size: 1.35rem;
-    color: #d2d2d2;
-    line-height: 1.65;
-}
+.info-box h2 { font-size: 2.1rem; margin-bottom: 20px; }
+.info-box p { font-size: 1.35rem; color: #d2d2d2; line-height: 1.65; }
 
 /* CONTACT SOCIAL CARDS */
-.social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
+.social-links { display: flex; flex-direction: column; gap: 20px; }
 .social-card {
     background: #141414;
     padding: 18px 22px;
@@ -164,15 +148,8 @@ section, header {
     text-decoration: none;
     transition: 0.25s ease;
 }
-
-.social-card:hover {
-    background: #1c1c1c;
-    transform: translateY(-3px);
-}
-
-.no-link {
-    cursor: default;
-}
+.social-card:hover { background: #1c1c1c; transform: translateY(-3px); }
+.no-link { cursor: default; }
 
 /* PAST WORK CONTAINER */
 .container-box {
@@ -184,12 +161,7 @@ section, header {
     padding: 34px 40px;
     backdrop-filter: blur(4px);
 }
-
-.container-box h2 {
-    font-size: 2.1rem;
-    text-align: center;
-    margin-bottom: 30px;
-}
+.container-box h2 { font-size: 2.1rem; text-align: center; margin-bottom: 30px; }
 
 /* GALLERY */
 .gallery {
@@ -198,7 +170,6 @@ section, header {
     justify-content: center;
     gap: 35px;
 }
-
 .gallery-item {
     width: 45%;
     max-width: 500px;
@@ -209,11 +180,7 @@ section, header {
     cursor: pointer;
     transition: transform .25s, box-shadow .25s;
 }
-
-.gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,.6);
-}
+.gallery-item:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,.6); }
 
 /* LIGHTBOX */
 #lightbox {
@@ -225,13 +192,7 @@ section, header {
     justify-content: center;
     z-index: 1000;
 }
-
-#lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 12px;
-}
-
+#lightbox img { max-width: 90%; max-height: 90%; border-radius: 12px; }
 #close {
     position: fixed;
     top: 20px;
@@ -244,38 +205,77 @@ section, header {
 }
 
 /* REVEAL ANIMATION */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity .7s ease-out, transform .7s ease-out;
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease-out, transform .7s ease-out; }
+.reveal.visible { opacity: 1; transform: translateY(0px); }
+
+/* ===================== MOBILE MENU & RESPONSIVE ===================== */
+
+/* mobile hamburger toggle (hidden on desktop) */
+.mobile-toggle {
+  display: none;
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  color: #eaeaea;
+  cursor: pointer;
+  z-index: 1100;
 }
 
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0px);
+/* mobile menu (drawer) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 78%;
+  max-width: 340px;
+  height: 100vh;
+  background: rgba(6,6,6,0.98);
+  backdrop-filter: blur(6px);
+  z-index: 1200;
+  transition: left 0.28s cubic-bezier(.2,.9,.2,1);
+  box-shadow: 10px 0 30px rgba(0,0,0,0.6);
+}
+.mobile-menu.open { left: 0; }
+
+.mobile-menu-inner { padding: 20px 18px; display:flex; flex-direction:column; gap:12px; color:#fff; }
+.mobile-close { align-self:flex-end; background:none; border:none; font-size:2.4rem; color:#fff; cursor:pointer; }
+
+.mobile-link { font-size:1.05rem; padding:10px 6px; text-decoration:none; color:#eaeaea; font-weight:700; display:block; cursor:pointer; }
+.mobile-link:hover { color:#00ff62; }
+
+.mobile-contact { margin-top:6px; color:#d2d2d2; display:flex; flex-direction:column; gap:8px; font-size:0.98rem; }
+.mobile-divider { height:1px; background:rgba(255,255,255,0.04); margin:6px 0 10px; }
+
+/* hide desktop status on small screens */
+.desktop-status { display: flex; align-items:center; gap:10px; }
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .navbar { height: 64px; padding: 0 18px; }
+  .navbar-spacer { height: 64px; }
+  .nav-left { gap: 12px; }
+  .nav-link { font-size: 1rem; }
+  .nav-logo { font-size: 2.8rem; } /* note: class is nav-logo; keep consistent above */
+  .nav-logo { font-size: 2.8rem; } /* redundant safe */
+  .desktop-status { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-left { overflow:hidden; white-space:nowrap; }
 }
 
-/* === NAVBAR FIX (FULL COPY–PASTE) === */
-
-/* consistent navbar height everywhere */
-.navbar {
-    height: 90px !important;
-    min-height: 90px !important;
-    padding: 0 40px !important;
+/* phones: hide left links, show hamburger */
+@media (max-width: 640px) {
+  .nav-left { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-logo { font-size: 2.2rem; }
+  .desktop-status { display: none; }
 }
 
-/* centered logo fix */
-.nav-logo {
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    white-space: nowrap !important;
-    pointer-events: none !important;
-}
+/* accessibility focus outlines */
+.mobile-toggle:focus, .mobile-close:focus, .mobile-link:focus, .nav-link:focus { outline: 2px solid rgba(0,255,98,0.12); outline-offset: 3px; }
 
-/* smaller logo on mobile */
-@media (max-width: 768px) {
-    .nav-logo {
-        font-size: 2.7rem !important;
-    }
-}
-
+/* ensure nav-logo pointer-events none */
+.nav-logo { pointer-events: none; }
