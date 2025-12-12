@@ -93,7 +93,7 @@ function changeLogoFont() {
 }
 
 // change font every 2500ms
-setInterval(changeLogoFont, 2500);
+setInterval(changeLogoFont, 175);
 
 /* ===== MOBILE MENU TOGGLE ===== */
 const mobileToggle = document.getElementById('mobileToggle');
