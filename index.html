@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Alii — Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" sizes="32x32" href="favicon.png">
-<link rel="icon" sizes="192x192" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
 
+    <!-- Dancing Script (logo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="icon" sizes="32x32" href="favicon.png">
+    <link rel="icon" sizes="192x192" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body id="top">
 
     <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-left">
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <!-- Mobile hamburger (visible on small screens) -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+
+        <!-- LEFT NAV (desktop) -->
+        <div class="nav-left" id="navLeft">
             <a class="nav-link" data-target="header">Info</a>
             <a class="nav-link" data-target="payment">Payment</a>
             <a class="nav-link" data-target="why-me">Why Me?</a>
@@ -26,14 +34,36 @@
             <a class="nav-link" data-target="work">Past Work</a>
         </div>
 
-          <!-- LOGO IN THE MIDDLE -->
-        <div class="nav-logo">
-            Alii
-        </div>
+        <!-- LOGO IN THE MIDDLE -->
+        <div class="nav-logo" aria-hidden="true">Alii</div>
 
-        <div class="for-hire-wrapper">
+        <!-- Desktop status (hidden on mobile) -->
+        <div class="for-hire-wrapper desktop-status">
             <span class="status-label">Status:</span>
             <span class="for-hire">For Hire!</span>
+        </div>
+
+        <!-- Mobile sliding menu -->
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <div class="mobile-menu-inner">
+                <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+
+                <a class="mobile-link" data-target="header">Info</a>
+                <a class="mobile-link" data-target="payment">Payment</a>
+                <a class="mobile-link" data-target="why-me">Why Me?</a>
+                <a class="mobile-link" data-target="contact">Contact</a>
+                <a class="mobile-link" data-target="work">Past Work</a>
+
+                <div class="mobile-divider"></div>
+
+                <div class="mobile-contact">
+                    <div>Discord: @aligoec</div>
+                    <a href="mailto:ali.goec88@gmail.com">Email: ali.goec88@gmail.com</a>
+                    <a href="https://www.roblox.com/users/2936203822/profile" target="_blank" rel="noopener">Roblox Profile</a>
+                    <div class="mobile-divider"></div>
+                    <div><strong>Status:</strong> For Hire!</div>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -68,7 +98,7 @@
             </p>
         </div>
 
-           <!-- WHY ME -->
+        <!-- WHY ME -->
         <div class="info-box reveal" id="why-me">
             <h2>Why Me?</h2>
             <p>
@@ -85,7 +115,7 @@
 
             <div class="social-links contact-links">
                 <a href="https://www.roblox.com/users/2936203822/profile" 
-                   target="_blank" class="social-card">
+                   target="_blank" class="social-card" rel="noopener">
                    Roblox User: proplayer98745ali
                 </a>
 
