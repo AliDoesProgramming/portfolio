@@ -1,4 +1,4 @@
-/* LIGHTBOX */
+/* ===== LIGHTBOX ===== */
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const galleryItems = document.querySelectorAll(".gallery-item");
@@ -19,7 +19,7 @@ lightbox.addEventListener("click", e => {
     if (e.target === lightbox) lightbox.style.display = "none";
 });
 
-/* NAVIGATION SCROLL USING DATA-TARGET */
+/* ===== NAVIGATION SCROLL USING DATA-TARGET (desktop links) ===== */
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
@@ -34,7 +34,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-/* REVEAL ON SCROLL */
+/* ===== REVEAL ON SCROLL ===== */
 const reveals = document.querySelectorAll('.reveal');
 
 function revealOnScroll() {
@@ -45,46 +45,30 @@ function revealOnScroll() {
         }
     });
 }
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 
+/* ===== LOGO FONT CYCLER (Dancing Script <-> random system fonts; no immediate repeats) ===== */
 const logo = document.querySelector('.nav-logo');
 
-// random fonts that exist on all systems
+// system-safe fonts array
 const fonts = [
     "Arial, sans-serif",
     "Verdana, sans-serif",
-    "Times New Roman, serif",
-    "Georgia, serif",
-    "Courier New, monospace",
-    "Lucida Console, monospace",
-    "Consolas, monospace",
-    "Monaco, monospace",
-    "Source Code Pro, monospace",
-
-    // Extra Sans-Serif
-    "Helvetica, sans-serif",
     "Tahoma, sans-serif",
     "Trebuchet MS, sans-serif",
-    "Gill Sans, sans-serif",
     "Segoe UI, sans-serif",
-    "Futura, sans-serif",
-    "Optima, sans-serif",
-
-    // Extra Serif
-    "Garamond, serif",
-    "Cambria, serif",
-    "Baskerville, serif",
+    "Helvetica, sans-serif",
+    "Georgia, serif",
+    "Times New Roman, serif",
     "Palatino Linotype, serif",
-    "Didot, serif",
-
-    // Extra Monospace
-    "Menlo, monospace",
-    "Ubuntu Mono, monospace",
-    "DejaVu Sans Mono, monospace",
-
-    // Display Fonts (still system fonts, very safe)
+    "Garamond, serif",
+    "Courier New, monospace",
+    "Consolas, monospace",
+    "Monaco, monospace",
+    "Lucida Console, monospace",
     "Impact, sans-serif",
     "Copperplate, serif",
-    "Rockwell, serif",
     "Franklin Gothic Medium, sans-serif"
 ];
 
@@ -92,72 +76,66 @@ let lastRandomFont = null;
 let isDancing = true;
 
 function changeLogoFont() {
+    if (!logo) return;
     if (isDancing) {
-        // Pick a random font that is NOT the same as the last one
+        // pick a random font not equal to lastRandomFont
         let newFont;
         do {
             newFont = fonts[Math.floor(Math.random() * fonts.length)];
         } while (newFont === lastRandomFont);
-
         lastRandomFont = newFont;
         logo.style.fontFamily = newFont;
-
     } else {
-        // Switch back to Dancing Script
+        // back to Dancing Script
         logo.style.fontFamily = "'Dancing Script', cursive";
     }
-
-    isDancing = !isDancing; // toggle
+    isDancing = !isDancing;
 }
-// change font every 2.5 seconds
-setInterval(changeLogoFont, 175);
 
-// ========== Mobile menu toggle ==========
+// change font every 2500ms
+setInterval(changeLogoFont, 2500);
+
+/* ===== MOBILE MENU TOGGLE ===== */
 const mobileToggle = document.getElementById('mobileToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileClose = document.getElementById('mobileClose');
 
-// toggle function
 function openMobileMenu() {
-  mobileMenu.classList.add('open');
-  mobileToggle.setAttribute('aria-expanded', 'true');
-  mobileMenu.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden'; // prevent page scroll while menu open
+    mobileMenu.classList.add('open');
+    mobileToggle.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
 }
-
 function closeMobileMenu() {
-  mobileMenu.classList.remove('open');
-  mobileToggle.setAttribute('aria-expanded', 'false');
-  mobileMenu.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+    mobileMenu.classList.remove('open');
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
 }
 
-mobileToggle.addEventListener('click', () => {
-  if (mobileMenu.classList.contains('open')) closeMobileMenu();
-  else openMobileMenu();
-});
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('open')) closeMobileMenu();
+        else openMobileMenu();
+    });
+}
 mobileClose?.addEventListener('click', closeMobileMenu);
 
-// close when clicking a mobile link and also smooth-scroll like desktop links
+// mobile links smooth scroll + close menu
 document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', e => {
-    const targetId = link.getAttribute('data-target');
-    const target = document.getElementById(targetId);
-    if (target) {
-      const navHeight = document.querySelector('.navbar').offsetHeight;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-    }
-    closeMobileMenu();
-  });
+    link.addEventListener('click', e => {
+        const targetId = link.getAttribute('data-target');
+        const target = document.getElementById(targetId);
+        if (target) {
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+        closeMobileMenu();
+    });
 });
 
-// close menu on ESC
+// close mobile menu on ESC
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeMobileMenu();
+    if (e.key === 'Escape') closeMobileMenu();
 });
-
-
-
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
