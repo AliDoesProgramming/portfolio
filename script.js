@@ -112,6 +112,52 @@ function changeLogoFont() {
 // change font every 2.5 seconds
 setInterval(changeLogoFont, 175);
 
+// ========== Mobile menu toggle ==========
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+
+// toggle function
+function openMobileMenu() {
+  mobileMenu.classList.add('open');
+  mobileToggle.setAttribute('aria-expanded', 'true');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden'; // prevent page scroll while menu open
+}
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  mobileToggle.setAttribute('aria-expanded', 'false');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+mobileToggle.addEventListener('click', () => {
+  if (mobileMenu.classList.contains('open')) closeMobileMenu();
+  else openMobileMenu();
+});
+mobileClose?.addEventListener('click', closeMobileMenu);
+
+// close when clicking a mobile link and also smooth-scroll like desktop links
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', e => {
+    const targetId = link.getAttribute('data-target');
+    const target = document.getElementById(targetId);
+    if (target) {
+      const navHeight = document.querySelector('.navbar').offsetHeight;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
+    closeMobileMenu();
+  });
+});
+
+// close menu on ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMobileMenu();
+});
+
+
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
