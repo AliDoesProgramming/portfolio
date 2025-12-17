@@ -224,7 +224,7 @@ section, header {
 }
 
 #lightbox img {
-    cursor: zoom-in;
+    cursor: grab;
     transition: transform 0.15s ease;
     transform-origin: center center;
 }
