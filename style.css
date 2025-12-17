@@ -218,6 +218,18 @@ section, header {
     cursor: pointer;
 }
 
+/* ===== LIGHTBOX ZOOM SUPPORT ===== */
+#lightbox {
+    overflow: hidden;
+}
+
+#lightbox img {
+    cursor: zoom-in;
+    transition: transform 0.15s ease;
+    transform-origin: center center;
+}
+
+
 /* REVEAL ANIMATION */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease-out, transform .7s ease-out; }
 .reveal.visible { opacity: 1; transform: translateY(0px); }
