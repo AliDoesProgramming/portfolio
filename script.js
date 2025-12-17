@@ -1,10 +1,20 @@
-/* ===== LIGHTBOX WITH ZOOM + SCROLL LOCK ===== */
+/* ===== LIGHTBOX WITH ZOOM + DRAG PAN + SCROLL LOCK ===== */
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const galleryItems = document.querySelectorAll(".gallery-item");
 const closeBtn = document.getElementById("close");
 
 let scale = 1;
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let translateX = 0;
+let translateY = 0;
+
+function applyTransform() {
+    lightboxImg.style.transform =
+        `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+}
 
 galleryItems.forEach(item => {
     item.addEventListener("click", () => {
@@ -12,9 +22,10 @@ galleryItems.forEach(item => {
         lightboxImg.src = item.src;
 
         scale = 1;
-        lightboxImg.style.transform = `scale(${scale})`;
+        translateX = 0;
+        translateY = 0;
+        applyTransform();
 
-        // lock page scroll
         document.body.style.overflow = "hidden";
     });
 });
@@ -22,9 +33,12 @@ galleryItems.forEach(item => {
 function closeLightbox() {
     lightbox.style.display = "none";
     lightboxImg.src = "";
-    scale = 1;
 
-    // restore page scroll
+    scale = 1;
+    translateX = 0;
+    translateY = 0;
+    applyTransform();
+
     document.body.style.overflow = "";
 }
 
@@ -39,13 +53,47 @@ lightboxImg.addEventListener("wheel", e => {
     e.preventDefault();
 
     const zoomSpeed = 0.12;
-    scale += e.deltaY * -zoomSpeed * 0.01;
+    const prevScale = scale;
 
-    // clamp zoom range
+    scale += e.deltaY * -zoomSpeed * 0.01;
     scale = Math.min(Math.max(1, scale), 4);
 
-    lightboxImg.style.transform = `scale(${scale})`;
+    // keep zoom centered on cursor
+    const rect = lightboxImg.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left - rect.width / 2;
+    const offsetY = e.clientY - rect.top - rect.height / 2;
+
+    translateX -= offsetX * (scale / prevScale - 1);
+    translateY -= offsetY * (scale / prevScale - 1);
+
+    applyTransform();
 }, { passive: false });
+
+/* ===== CLICK + DRAG TO PAN ===== */
+lightboxImg.addEventListener("mousedown", e => {
+    if (scale === 1) return; // no drag if not zoomed
+
+    isDragging = true;
+    startX = e.clientX - translateX;
+    startY = e.clientY - translateY;
+
+    lightboxImg.style.cursor = "grabbing";
+});
+
+window.addEventListener("mousemove", e => {
+    if (!isDragging) return;
+
+    translateX = e.clientX - startX;
+    translateY = e.clientY - startY;
+
+    applyTransform();
+});
+
+window.addEventListener("mouseup", () => {
+    isDragging = false;
+    lightboxImg.style.cursor = scale > 1 ? "grab" : "zoom-in";
+});
+
 
 /* ===== NAVIGATION SCROLL USING DATA-TARGET (desktop links) ===== */
 document.querySelectorAll('.nav-link').forEach(link => {
