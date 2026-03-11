@@ -1,184 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Alii — Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alii — Portfolio</title>
 
-    <!-- Dancing Script (logo) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- favicon -->
-    <link rel="icon" sizes="32x32" href="favicon.png">
-    <link rel="icon" sizes="192x192" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" sizes="32x32" href="favicon.png">
+<link rel="icon" sizes="192x192" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 
-    <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body id="top">
 
-    <!-- NAVBAR -->
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
-        <!-- Mobile hamburger (visible on small screens) -->
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+<!-- NAVBAR -->
+<nav class="navbar">
 
-        <!-- LEFT NAV (desktop) -->
-        <div class="nav-left" id="navLeft">
-            <a class="nav-link" data-target="header">Info</a>
-            <a class="nav-link" data-target="payment">Payment</a>
-            <a class="nav-link" data-target="why-me">Why Me?</a>
-            <a class="nav-link" data-target="contact">Contact</a>
-            <a class="nav-link" data-target="work">Past Work</a>
-        </div>
+<button class="mobile-toggle" id="mobileToggle">☰</button>
 
-        <!-- LOGO IN THE MIDDLE -->
-        <div class="nav-logo" aria-hidden="true">Alii</div>
+<div class="nav-left">
+<a class="nav-link" data-target="header">Info</a>
+<a class="nav-link" data-target="payment">Payment</a>
+<a class="nav-link" data-target="why-me">Why Me?</a>
+<a class="nav-link" data-target="contact">Contact</a>
+<a class="nav-link" data-target="work">Past Work</a>
+</div>
 
-        <!-- Desktop status (hidden on mobile) -->
-        <div class="for-hire-wrapper desktop-status">
-            <span class="status-label">Status:</span>
-            <span class="for-hire">Comms Open</span>
-        </div>
+<div class="nav-logo">Alii</div>
 
-        <!-- Mobile sliding menu -->
-        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-            <div class="mobile-menu-inner">
-                <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+<div class="for-hire-wrapper desktop-status">
+<span class="status-label">Status:</span>
+<span class="for-hire">Comms Open</span>
+</div>
 
-                <a class="mobile-link" data-target="header">Info</a>
-                <a class="mobile-link" data-target="payment">Payment</a>
-                <a class="mobile-link" data-target="why-me">Why Me?</a>
-                <a class="mobile-link" data-target="contact">Contact</a>
-                <a class="mobile-link" data-target="work">Past Work</a>
+<div class="mobile-menu" id="mobileMenu">
 
-                <div class="mobile-divider"></div>
+<div class="mobile-menu-inner">
 
-                <div class="mobile-contact">
-                    <div>Discord: @aligoec</div>
-                    <a href="mailto:ali.goec88@gmail.com">Email: ali.goec88@gmail.com</a>
-                    <a href="https://www.roblox.com/users/2936203822/profile" target="_blank" rel="noopener">Roblox Profile</a>
-                    <div class="mobile-divider"></div>
-                    <div><strong>Status:</strong> Comms Open</div>
-                </div>
-            </div>
-        </div>
-    </nav>
+<button class="mobile-close" id="mobileClose">&times;</button>
 
-    <!-- SPACER FOR NAVBAR -->
-    <div class="navbar-spacer"></div>
+<a class="mobile-link" data-target="header">Info</a>
+<a class="mobile-link" data-target="payment">Payment</a>
+<a class="mobile-link" data-target="why-me">Why Me?</a>
+<a class="mobile-link" data-target="contact">Contact</a>
+<a class="mobile-link" data-target="work">Past Work</a>
+<a class="mobile-link" data-target="vouches-mobile">Vouches</a>
+
+<div class="mobile-divider"></div>
+
+<div class="mobile-contact">
+<div>Discord: @aligoec</div>
+<a href="mailto:ali.goec88@gmail.com">Email: ali.goec88@gmail.com</a>
+<a href="https://www.roblox.com/users/2936203822/profile" target="_blank">Roblox Profile</a>
+
+<div class="mobile-divider"></div>
+
+<div><strong>Status:</strong> Comms Open</div>
+
+</div>
+
+</div>
+
+</div>
+
+</nav>
+
+<div class="navbar-spacer"></div>
 
 
-    <!-- VOUCHES SIDEBAR -->
-<aside class="vouches-panel" aria-label="Client Vouches">
-    <h3>Client Vouches</h3>
+<!-- VOUCHES SIDEBAR (DESKTOP ONLY) -->
 
-    <div class="vouches-container">
-        <!-- Add your screenshot thumbnails here -->
-        <img src="AkiraVouch.png" alt="Client 1 vouch">
-        <img src="Vouch2.png" alt="Client 2 vouch">
-    </div>
+<aside class="vouches-panel">
+
+<h3>Client Vouches</h3>
+
+<div class="vouches-container">
+
+<img src="AkiraVouch.png">
+<img src="Vouch2.png">
+
+</div>
+
 </aside>
 
 
+<!-- HEADER -->
 
-    <!-- HEADER -->
-    <header class="header reveal" id="header">
-        <h1>Welcome to my Portfolio!</h1>
+<header class="header reveal" id="header">
 
-        <p class="description">
-            Hi! I’m Alii, a Roblox UI/UX designer and graphic artist.<br>
-            I create clean, modern interfaces and eye-catching graphics for games and projects.<br>
-            I have been making UIs on Roblox for about 5 years total and 1-2 years professionally.<br>
-            I mainly use Figma for my UIs.<br>
-            I have contributed to 11 Million+ visits on Roblox.<br>
-            Timezone: CET(UTC+1)
-        </p>
-    </header>
+<h1>Welcome to my Portfolio!</h1>
 
-    <!-- PAYMENT + WHY ME + CONTACT -->
-    <section class="big-section">
+<p class="description">
+Hi! I’m Alii, a Roblox UI/UX designer and graphic artist.<br>
+I create clean, modern interfaces and eye-catching graphics for games and projects.<br>
+I have been making UIs on Roblox for about 5 years total and 1-2 years professionally.<br>
+I mainly use Figma for my UIs.<br>
+I have contributed to 11 Million+ visits on Roblox.<br>
+Timezone: CET (UTC+1)
+</p>
 
-        <!-- Payment -->
-        <div class="info-box reveal" id="payment">
-            <h2>Payment Information</h2>
-            <p>
-                • Preferred: PayPal<br>
-                • Robux accepted in some cases<br>
-                • Pricing depends on project complexity<br>
-                • No upfront payment for small jobs<br>
-            </p>
-        </div>
+</header>
 
-        <!-- WHY ME -->
-        <div class="info-box reveal" id="why-me">
-            <h2>Why Me?</h2>
-            <p>
-                • Cheaper than others<br>
-                • Extremely fast responses<br>
-                • Fast delivery<br>
-                • Always listen to the client<br>
-                • Can do revisions<br>
-                • Give updates on the status of the UI every now and then<br>
-            </p>
-        </div>
 
-        <!-- Contact -->
-        <div class="info-box reveal" id="contact">
-            <h2>Contact Details</h2>
+<!-- INFO SECTIONS -->
 
-            <div class="social-links contact-links">
-                <a href="https://www.roblox.com/users/2936203822/profile" 
-                   target="_blank" class="social-card" rel="noopener">
-                   Roblox User: proplayer98745ali
-                </a>
+<section class="big-section">
 
-                <div class="social-card no-link">
-                    Discord: @aligoec
-                </div>
+<div class="info-box reveal" id="payment">
 
-                <a href="mailto:ali.goec88@gmail.com" class="social-card">
-                    Email: ali.goec88@gmail.com
-                </a>
+<h2>Payment Information</h2>
 
-                <a href="https://x.com/AliiMakesUI" class="social-card">
-                    X: AliiMakesUI
-                </a>
-            </div>
-        </div>
+<p>
+• Preferred: PayPal<br>
+• Robux accepted in some cases<br>
+• Pricing depends on project complexity<br>
+• No upfront payment for small jobs
+</p>
 
-    </section>
+</div>
 
-    <!-- PAST WORK -->
-    <section class="past-work reveal" id="work">
-        <div class="container-box">
-            <h2>Past Work</h2>
 
-            <div class="gallery">
-                <img src="Golden.png" alt="Work 1" class="gallery-item">
-                <img src="lances collab normal.png" alt="Work 1" class="gallery-item">
-                <img src="Styled Bars.png" alt="Work 2" class="gallery-item">
-                <img src="Bars.png" alt="Work 2" class="gallery-item">
-                <img src="Pro Editing.png" alt="Work 2" class="gallery-item">
-                <img src="Outfits.png" alt="Work 3" class="gallery-item">
-                <img src="TradeReq.png" alt="Work 4" class="gallery-item">
-                <img src="Hotbar.png" alt="Work 5" class="gallery-item">
-                <img src="Inventory.png" alt="Work 6" class="gallery-item">
-                <img src="Screenshot 2025-11-22 201814.png" alt="Work 7" class="gallery-item">
-                <img src="BattlePass.png" alt="Work 8" class="gallery-item">
-                <img src="WormUINew.png" alt="Work 9" class="gallery-item">
-            </div>
-        </div>
-    </section>
+<div class="info-box reveal" id="why-me">
 
-    <!-- LIGHTBOX -->
-    <div id="lightbox">
-        <button id="close">&times;</button>
-        <img id="lightbox-img" src="" alt="Expanded Work">
-    </div>
+<h2>Why Me?</h2>
+
+<p>
+• Cheaper than others<br>
+• Extremely fast responses<br>
+• Fast delivery<br>
+• Always listen to the client<br>
+• Can do revisions<br>
+• Give updates on the status of the UI every now and then
+</p>
+
+</div>
+
+
+<div class="info-box reveal" id="contact">
+
+<h2>Contact Details</h2>
+
+<div class="social-links">
+
+<a href="https://www.roblox.com/users/2936203822/profile" target="_blank" class="social-card">
+Roblox User: proplayer98745ali
+</a>
+
+<div class="social-card no-link">
+Discord: @aligoec
+</div>
+
+<a href="mailto:ali.goec88@gmail.com" class="social-card">
+Email: ali.goec88@gmail.com
+</a>
+
+<a href="https://x.com/AliiMakesUI" class="social-card">
+X: AliiMakesUI
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PAST WORK -->
+
+<section class="past-work reveal" id="work">
+
+<div class="container-box">
+
+<h2>Past Work</h2>
+
+<div class="gallery">
+
+<img src="Golden.png" class="gallery-item">
+<img src="lances collab normal.png" class="gallery-item">
+<img src="Styled Bars.png" class="gallery-item">
+<img src="Bars.png" class="gallery-item">
+<img src="Pro Editing.png" class="gallery-item">
+<img src="Outfits.png" class="gallery-item">
+<img src="TradeReq.png" class="gallery-item">
+<img src="Hotbar.png" class="gallery-item">
+<img src="Inventory.png" class="gallery-item">
+<img src="Screenshot 2025-11-22 201814.png" class="gallery-item">
+<img src="BattlePass.png" class="gallery-item">
+<img src="WormUINew.png" class="gallery-item">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MOBILE VOUCHES SECTION -->
+
+<section class="past-work reveal mobile-vouches" id="vouches-mobile">
+
+<div class="container-box">
+
+<h2>Client Vouches</h2>
+
+<div class="vouches-container">
+
+<img src="AkiraVouch.png">
+<img src="Vouch2.png">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LIGHTBOX -->
+
+<div id="lightbox">
+
+<button id="close">&times;</button>
+
+<img id="lightbox-img">
+
+</div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
