@@ -361,10 +361,22 @@ section, header {
 }
 
 /* Hide on smaller screens */
+/* MOBILE: turn sidebar into normal section */
 @media (max-width: 1100px) {
+
     .vouches-panel {
-        display: none;
+        position: static;
+        width: 95%;
+        margin: 40px auto;
+        right: auto;
+        top: auto;
     }
+
+    .vouches-container {
+        max-height: none;
+        overflow: visible;
+    }
+
 }
 
 
