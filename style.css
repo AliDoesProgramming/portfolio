@@ -379,4 +379,18 @@ section, header {
 
 }
 
+.mobile-vouches {
+display:none;
+}
 
+@media (max-width:1100px){
+
+.mobile-vouches{
+display:block;
+}
+
+.vouches-panel{
+display:none;
+}
+
+}
