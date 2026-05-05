@@ -59,17 +59,20 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
 
-    display: inline-block; /* 🔥 critical fix */
+    display: inline-block;
 
-    background: linear-gradient(120deg, red, blue, green); /* fallback so clipping works */
-
+    /* REQUIRED COMBO */
+    background: linear-gradient(120deg, #fff, #fff); /* fallback */
     background-clip: text;
     -webkit-background-clip: text;
 
-    color: transparent;
     -webkit-text-fill-color: transparent;
+    color: transparent;
 
-    text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    /* important: prevent weird layout issues */
+    line-height: 1;
+
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
 
     position: absolute;
     left: 50%;
@@ -78,6 +81,7 @@ body {
     pointer-events: none;
     white-space: nowrap;
 }
+
 /* STATUS / FOR HIRE (desktop) */
 .for-hire-wrapper {
     display: flex;
