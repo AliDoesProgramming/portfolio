@@ -277,12 +277,18 @@ function updateGradient() {
         interpolateColor(color, c2[i], progress)
     );
 
-    document.body.style.background = `
-        linear-gradient(120deg,
-        ${rgbToCss(blended[0])},
-        ${rgbToCss(blended[1])},
-        ${rgbToCss(blended[2])})
-    `;
+ const gradientString = `
+    linear-gradient(120deg,
+    ${rgbToCss(blended[0])},
+    ${rgbToCss(blended[1])},
+    ${rgbToCss(blended[2])})
+`;
+
+document.body.style.background = gradientString;
+
+if (logo) {
+    logo.style.background = gradientString;
+}
 
     requestAnimationFrame(updateGradient);
 }
