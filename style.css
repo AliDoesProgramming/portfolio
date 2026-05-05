@@ -6,12 +6,12 @@
 }
 
 body {
-    background: linear-gradient(90deg, rgba(166,0,102,1), rgba(61,1,58,1), rgba(112,0,11,1));
+    background: linear-gradient(90deg,rgba(0, 31, 11, 1) 0%, rgba(0, 10, 6, 1) 35%, rgba(0, 30, 31, 1) 100%);
     color: #fff;
     font-family: "Inter", sans-serif;
     padding: 0;
     scroll-behavior: smooth;
-    transition: background 0.5s linear; /* helps smooth visual update */
+    transition: background 0.5s linear;
 }
 
 /* NAV LEFT */
@@ -46,7 +46,7 @@ body {
     font-weight: 700;
     transition: transform 0.22s ease, color 0.22s ease;
     cursor: pointer;
-    display: inline-block;
+    display: inline-block; /* ensures transform works */
 }
 .nav-link:hover {
     color: #00ff62;
@@ -90,7 +90,7 @@ body {
 
 /* SPACER FOR NAVBAR */
 .navbar-spacer {
-    height: 80px;
+    height: 80px; /* same as navbar height */
 }
 
 /* HEADER */
@@ -113,7 +113,7 @@ body {
 
 /* GENERAL SECTION SPACING */
 section, header {
-    scroll-margin-top: 90px;
+    scroll-margin-top: 90px; /* match navbar height */
 }
 
 /* CONTAINERS */
@@ -165,15 +165,16 @@ section, header {
 .container-box h2 { font-size: 2.1rem; text-align: center; margin-bottom: 30px; }
 
 /* GALLERY */
+/* ===== PAST WORK GALLERY FIX ===== */
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 24px;
+    gap: 24px; /* smaller gap for mobile readability */
 }
 
 .gallery-item {
-    width: calc(50% - 12px);
+    width: calc(50% - 12px); /* two images per row with gap accounted for */
     max-width: 500px;
     aspect-ratio: 16 / 9;
     object-fit: cover;
@@ -188,6 +189,7 @@ section, header {
     box-shadow: 0 15px 30px rgba(0,0,0,.6);
 }
 
+/* MOBILE: single column images */
 @media (max-width: 640px) {
     .gallery-item {
         width: 100%;
@@ -206,7 +208,6 @@ section, header {
     z-index: 1000;
 }
 #lightbox img { max-width: 90%; max-height: 90%; border-radius: 12px; }
-
 #close {
     position: fixed;
     top: 20px;
@@ -218,6 +219,180 @@ section, header {
     cursor: pointer;
 }
 
+/* ===== LIGHTBOX ZOOM SUPPORT ===== */
+#lightbox {
+    overflow: hidden;
+}
+
+#lightbox img {
+    cursor: grab;
+    transition: transform 0.15s ease;
+    transform-origin: center center;
+}
+
+
 /* REVEAL ANIMATION */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease-out, transform .7s ease-out; }
 .reveal.visible { opacity: 1; transform: translateY(0px); }
+
+/* ===================== MOBILE MENU & RESPONSIVE ===================== */
+
+/* mobile hamburger toggle (hidden on desktop) */
+.mobile-toggle {
+  display: none;
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  color: #eaeaea;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* mobile menu (drawer) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 78%;
+  max-width: 340px;
+  height: 100vh;
+  background: rgba(6,6,6,0.98);
+  backdrop-filter: blur(6px);
+  z-index: 1200;
+  transition: left 0.28s cubic-bezier(.2,.9,.2,1);
+  box-shadow: 10px 0 30px rgba(0,0,0,0.6);
+}
+.mobile-menu.open { left: 0; }
+
+.mobile-menu-inner { padding: 20px 18px; display:flex; flex-direction:column; gap:12px; color:#fff; }
+.mobile-close { align-self:flex-end; background:none; border:none; font-size:2.4rem; color:#fff; cursor:pointer; }
+
+.mobile-link { font-size:1.05rem; padding:10px 6px; text-decoration:none; color:#eaeaea; font-weight:700; display:block; cursor:pointer; }
+.mobile-link:hover { color:#00ff62; }
+
+.mobile-contact { margin-top:6px; color:#d2d2d2; display:flex; flex-direction:column; gap:8px; font-size:0.98rem; }
+.mobile-divider { height:1px; background:rgba(255,255,255,0.04); margin:6px 0 10px; }
+
+/* hide desktop status on small screens */
+.desktop-status { display: flex; align-items:center; gap:10px; }
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .navbar { height: 64px; padding: 0 18px; }
+  .navbar-spacer { height: 64px; }
+  .nav-left { gap: 12px; }
+  .nav-link { font-size: 1rem; }
+  .nav-logo { font-size: 2.8rem; } /* note: class is nav-logo; keep consistent above */
+  .nav-logo { font-size: 2.8rem; } /* redundant safe */
+  .desktop-status { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-left { overflow:hidden; white-space:nowrap; }
+}
+
+/* phones: hide left links, show hamburger */
+@media (max-width: 640px) {
+  .nav-left { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-logo { font-size: 2.2rem; }
+  .desktop-status { display: none; }
+}
+
+/* accessibility focus outlines */
+.mobile-toggle:focus, .mobile-close:focus, .mobile-link:focus, .nav-link:focus { outline: 2px solid rgba(0,255,98,0.12); outline-offset: 3px; }
+
+/* ensure nav-logo pointer-events none */
+.nav-logo { pointer-events: none; }
+
+/* ===================== VOUCHES SIDEBAR ===================== */
+.vouches-panel {
+    position: fixed;
+    top: 100px; /* clears navbar */
+    right: 24px; /* padding from edge */
+    width: min(20vw, 280px); /* wider than before */
+    min-width: 200px;
+
+    background: rgba(0,0,0,0.45);
+    border: 1px solid #1f1f1f;
+    border-radius: 14px;
+    padding: 18px 16px;
+
+    backdrop-filter: blur(4px);
+    z-index: 500;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.vouches-panel h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-align: center;
+    color: #00ff62;
+    text-shadow: 0 0 6px rgba(0,255,98,0.6);
+}
+
+/* Container for client vouches/screenshots */
+.vouches-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    max-height: calc(100vh - 140px); /* viewport minus navbar + spacing */
+    padding-right: 4px;
+}
+
+/* Example styling for screenshots */
+.vouches-container img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #1f1f1f;
+    object-fit: cover;
+    transition: transform .2s ease, box-shadow .2s ease;
+    cursor: pointer;
+}
+
+.vouches-container img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* Hide on smaller screens */
+/* MOBILE: turn sidebar into normal section */
+@media (max-width: 1100px) {
+
+    .vouches-panel {
+        position: static;
+        width: 95%;
+        margin: 40px auto;
+        right: auto;
+        top: auto;
+    }
+
+    .vouches-container {
+        max-height: none;
+        overflow: visible;
+    }
+
+}
+
+.mobile-vouches {
+display:none;
+margin-top: 60px;
+}
+
+@media (max-width:1100px){
+
+.mobile-vouches{
+display:block;
+}
+
+.vouches-panel{
+display:none;
+}
+
+}
