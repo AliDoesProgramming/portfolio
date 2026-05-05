@@ -60,12 +60,12 @@ body {
     font-weight: 700;
 
     /* gradient text setup */
-    background: linear-gradient(120deg, #a60066, #3d013a, #70000b);
     background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
 
-    text-shadow: 0 0 10px rgba(0,255,98,0.4);
+    text-shadow: 0 0 10px rgba(255,255,255);
 
     position: absolute;
     left: 50%;
