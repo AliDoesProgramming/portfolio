@@ -215,3 +215,76 @@ document.querySelectorAll('.mobile-link').forEach(link => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMobileMenu();
 });
+
+
+/* ===== TRUE GRADIENT TWEEN SYSTEM ===== */
+
+const gradients = [
+    ["#a60066", "#3d013a", "#70000b"],
+    ["#00a69b", "#012f3d", "#700061"],
+    ["#a64d00", "#786e00", "#302300"],
+    ["#005237", "#0088ff", "#090030"],
+    ["#0b5200", "#6a8200", "#615100"],
+    ["#00785a", "#003c46", "#500078"],
+    ["#8c005a", "#46003c", "#005078"],
+    ["#006428", "#009678", "#00283c"],
+    ["#783c00", "#5a5a00", "#281e00"],
+    ["#005a6e", "#008cb4", "#140046"]
+];
+
+let current = 0;
+let next = 1;
+let progress = 0;
+
+function lerp(a, b, t) {
+    return a + (b - a) * t;
+}
+
+function hexToRgb(hex) {
+    const bigint = parseInt(hex.replace("#", ""), 16);
+    return [
+        (bigint >> 16) & 255,
+        (bigint >> 8) & 255,
+        bigint & 255
+    ];
+}
+
+function rgbToCss([r, g, b]) {
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+function interpolateColor(c1, c2, t) {
+    return [
+        Math.round(lerp(c1[0], c2[0], t)),
+        Math.round(lerp(c1[1], c2[1], t)),
+        Math.round(lerp(c1[2], c2[2], t))
+    ];
+}
+
+function updateGradient() {
+    progress += 0.002; // SPEED CONTROL (lower = slower)
+
+    if (progress >= 1) {
+        progress = 0;
+        current = next;
+        next = (next + 1) % gradients.length;
+    }
+
+    const c1 = gradients[current].map(hexToRgb);
+    const c2 = gradients[next].map(hexToRgb);
+
+    const blended = c1.map((color, i) =>
+        interpolateColor(color, c2[i], progress)
+    );
+
+    document.body.style.background = `
+        linear-gradient(120deg,
+        ${rgbToCss(blended[0])},
+        ${rgbToCss(blended[1])},
+        ${rgbToCss(blended[2])})
+    `;
+
+    requestAnimationFrame(updateGradient);
+}
+
+updateGradient();
