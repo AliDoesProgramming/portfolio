@@ -287,7 +287,7 @@ function updateGradient() {
 document.body.style.background = gradientString;
 
 if (logo) {
-    logo.style.background = gradientString;
+    logo.style.backgroundImage = gradientString;
 }
 
     requestAnimationFrame(updateGradient);
