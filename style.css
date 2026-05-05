@@ -6,51 +6,12 @@
 }
 
 body {
-    background: linear-gradient(90deg,rgba(0, 31, 11, 1) 0%, rgba(0, 10, 6, 1) 35%, rgba(0, 30, 31, 1) 100%);
-    background-size: 400% 400%;
-    animation: gradientFlow 80s ease infinite; /* slow smooth loop */
-
+    background: linear-gradient(90deg, rgba(166,0,102,1), rgba(61,1,58,1), rgba(112,0,11,1));
     color: #fff;
     font-family: "Inter", sans-serif;
     padding: 0;
     scroll-behavior: smooth;
-}
-
-/* ===== GRADIENT ANIMATION ===== */
-@keyframes gradientFlow {
-    0% {
-        background: linear-gradient(90deg, rgba(166, 0, 102, 1) 0%, rgba(61, 1, 58, 1) 35%, rgba(112, 0, 11, 1) 100%);
-    }
-    10% {
-        background: linear-gradient(90deg, rgba(0, 166, 155, 1) 0%, rgba(1, 47, 61, 1) 35%, rgba(112, 0, 97, 1) 100%);
-    }
-    20% {
-        background: linear-gradient(90deg, rgba(166, 77, 0, 1) 0%, rgba(120, 110, 0, 1) 57%, rgba(48, 35, 0, 1) 100%);
-    }
-    30% {
-        background: linear-gradient(140deg, rgba(0, 82, 55, 1) 0%, rgba(0, 136, 255, 1) 57%, rgba(9, 0, 48, 1) 100%);
-    }
-    40% {
-        background: linear-gradient(140deg, rgba(11, 82, 0, 1) 0%, rgba(106, 130, 0, 1) 57%, rgba(97, 81, 0, 1) 100%);
-    }
-    50% {
-        background: linear-gradient(120deg, rgba(0, 120, 90, 1) 0%, rgba(0, 60, 70, 1) 40%, rgba(80, 0, 120, 1) 100%);
-    }
-    60% {
-        background: linear-gradient(100deg, rgba(140, 0, 90, 1) 0%, rgba(70, 0, 60, 1) 45%, rgba(0, 80, 120, 1) 100%);
-    }
-    70% {
-        background: linear-gradient(130deg, rgba(0, 100, 40, 1) 0%, rgba(0, 150, 120, 1) 50%, rgba(0, 40, 60, 1) 100%);
-    }
-    80% {
-        background: linear-gradient(110deg, rgba(120, 60, 0, 1) 0%, rgba(90, 90, 0, 1) 50%, rgba(40, 30, 0, 1) 100%);
-    }
-    90% {
-        background: linear-gradient(140deg, rgba(0, 90, 110, 1) 0%, rgba(0, 140, 180, 1) 50%, rgba(20, 0, 70, 1) 100%);
-    }
-    100% {
-        background: linear-gradient(90deg, rgba(166, 0, 102, 1) 0%, rgba(61, 1, 58, 1) 35%, rgba(112, 0, 11, 1) 100%);
-    }
+    transition: background 0.5s linear; /* helps smooth visual update */
 }
 
 /* NAV LEFT */
