@@ -58,8 +58,15 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: 3.5rem;
     font-weight: 700;
-    color: #00ff62;
-    text-shadow: 0 0 10px #00ff62;
+
+    /* gradient text setup */
+    background: linear-gradient(120deg, #a60066, #3d013a, #70000b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    text-shadow: 0 0 10px rgba(0,255,98,0.4);
+
     position: absolute;
     left: 50%;
     top: 50%;
