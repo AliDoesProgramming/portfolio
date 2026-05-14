@@ -294,3 +294,22 @@ if (logo) {
 }
 
 updateGradient();
+
+/* ===== BACKGROUND MUSIC ===== */
+
+const bgMusic = document.getElementById("bgMusic");
+
+if (bgMusic) {
+
+    bgMusic.volume = 0.35;
+
+    function startMusic() {
+        bgMusic.play().catch(() => {});
+        
+        document.removeEventListener("click", startMusic);
+        document.removeEventListener("keydown", startMusic);
+    }
+
+    document.addEventListener("click", startMusic);
+    document.addEventListener("keydown", startMusic);
+}
