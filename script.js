@@ -217,89 +217,13 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-/* ===== SCROLL-BASED BACKGROUND GRADIENT SYSTEM ===== */
-
-const gradients = [
-  [
-    [255, 0, 0],
-    [92, 13, 13]
-  ],
-  [
-    [0, 255, 47],
-    [42, 92, 13]
-  ],
-  [
-    [0, 98, 255],
-    [0, 255, 251]
-  ],
-  [
-    [255, 0, 242],
-    [102, 0, 56]
-  ]
-];
-
-let current = 0;
-let target = 1;
-let progress = 0;
-
-function lerp(a, b, t) {
-  return a + (b - a) * t;
-}
-
-function mixColor(c1, c2, t) {
-  return [
-    Math.round(lerp(c1[0], c2[0], t)),
-    Math.round(lerp(c1[1], c2[1], t)),
-    Math.round(lerp(c1[2], c2[2], t))
-  ];
-}
-
-function rgb(c) {
-  return `rgb(${c[0]}, ${c[1]}, ${c[2]})`;
-}
-
-function getScrollProgress() {
-  const y = window.scrollY || 0;
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  return h > 0 ? y / h : 0;
-}
-
-function loop() {
-  const p = getScrollProgress();
-
-  target = Math.floor(p * gradients.length);
-  target = Math.min(gradients.length - 1, target);
-
-  if (target !== current) {
-    progress += 0.02; // tween speed
-
-    if (progress >= 1) {
-      progress = 0;
-      current = target;
-    }
-  }
-
-  const c1 = gradients[current];
-  const c2 = gradients[target];
-
-  const top = mixColor(c1[0], c2[0], progress);
-  const bottom = mixColor(c1[1], c2[1], progress);
-
-  document.body.style.backgroundImage =
-    `linear-gradient(120deg, ${rgb(top)}, ${rgb(bottom)})`;
-
-  requestAnimationFrame(loop);
-}
-
-loop();
-
 /* ===== BACKGROUND MUSIC ===== */
 
 const bgMusic = document.getElementById("bgMusic");
 
 if (bgMusic) {
 
-    bgMusic.volume = 0.35;
+    bgMusic.volume = 0.2;
 
     function startMusic() {
         bgMusic.play().catch(() => {});
