@@ -220,10 +220,10 @@ document.addEventListener('keydown', (e) => {
 /* ===== SCROLL-BASED BACKGROUND GRADIENT SYSTEM ===== */
 
 const gradients = [
-    "linear-gradient(139deg, rgba(255, 0, 0, 0.23) 0%, rgba(92, 13, 13, 0) 100%)",
-    "linear-gradient(239deg, rgba(0, 255, 47, 0.23) 0%, rgba(42, 92, 13, 0) 100%)",
-    "linear-gradient(239deg, rgba(0, 98, 255, 0.23) 0%, rgba(0, 255, 251, 0) 100%)",
-    "linear-gradient(239deg, rgba(255, 0, 242, 0.23) 0%, rgba(102, 0, 56, 0) 100%)"
+  "linear-gradient(139deg, rgba(255, 0, 0, 0.45) 0%, rgba(92, 13, 13, 0) 99%)",
+  "linear-gradient(239deg, rgba(0, 255, 47, 0.35) 0%, rgba(42, 92, 13, 0) 99%)",
+  "linear-gradient(239deg, rgba(0, 98, 255, 0.35) 0%, rgba(0, 255, 251, 0) 99%)",
+  "linear-gradient(239deg, rgba(255, 0, 242, 0.35) 0%, rgba(102, 0, 56, 0) 99%)"
 ];
 
 let lastIndex = -1;
@@ -241,7 +241,7 @@ function updateBackgroundOnScroll() {
 
     if (index !== lastIndex) {
         lastIndex = index;
-        document.body.style.background = gradients[index];
+        document.body.style.setProperty("--bg-gradient", gradients[index]);
     }
 }
 
