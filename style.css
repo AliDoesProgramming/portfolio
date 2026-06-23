@@ -187,11 +187,11 @@ section, header {
 .container-box {
     max-width: 90%;
     width: 80%;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0, 74, 13, 0.2);
     border: 1px solid #1f1f1f;
     border-radius: 14px;
     padding: 34px 40px;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
 }
 .container-box h2 { font-size: 2.1rem; text-align: center; margin-bottom: 30px; }
 
