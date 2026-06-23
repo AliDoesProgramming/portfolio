@@ -6,34 +6,32 @@
 }
 
 body {
-    min-height: 300vh; /* important: gives scroll space for gradient movement */
+    min-height: 300vh;
 
     background: linear-gradient(
         180deg,
-        rgba(255, 0, 242, 1) 0%,
-        rgba(131, 83, 0, 1) 10%,
-        rgba(46, 102, 0, 1) 20%,
-        rgba(10, 207, 0, 1) 30%,
-        rgba(0, 82, 102, 1) 40%,
-        rgba(0, 153, 130, 1) 50%,
-        rgba(0, 26, 153, 1) 60%,
-        rgba(82, 0, 153, 1) 70%,
-        rgba(150, 0, 153, 1) 80%,
-        rgba(153, 0, 87, 1) 90%,
-        rgba(153, 0, 0, 1) 100%
+        rgba(140, 0, 110, 0.95) 0%,
+        rgba(90, 55, 0, 0.95) 10%,
+        rgba(30, 80, 0, 0.95) 20%,
+        rgba(0, 140, 0, 0.95) 30%,
+        rgba(0, 70, 90, 0.95) 40%,
+        rgba(0, 120, 110, 0.95) 50%,
+        rgba(0, 35, 140, 0.95) 60%,
+        rgba(60, 0, 120, 0.95) 70%,
+        rgba(110, 0, 120, 0.95) 80%,
+        rgba(120, 0, 70, 0.95) 90%,
+        rgba(120, 0, 0, 0.95) 100%
     );
 
-    background-attachment: fixed;
-    background-size: cover;
-    
-    position: relative;
-    overflow-x: hidden;
+    background-repeat: no-repeat;
+    background-size: 100% 300vh;
+
     color: #fff;
     font-family: "Manrope", sans-serif;
     padding: 0;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
-
 
 /* NAV LEFT */
 .nav-left {
