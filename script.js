@@ -168,8 +168,8 @@ function changeLogoFont() {
     isDancing = !isDancing;
 }
 
-// change font every 2500ms
-setInterval(changeLogoFont, 150);
+// change font every 800ms
+setInterval(changeLogoFont, 800);
 
 /* ===== MOBILE MENU TOGGLE ===== */
 const mobileToggle = document.getElementById('mobileToggle');
@@ -217,83 +217,36 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-/* ===== TRUE GRADIENT TWEEN SYSTEM ===== */
+/* ===== SCROLL-BASED BACKGROUND GRADIENT SYSTEM ===== */
 
 const gradients = [
-    ["#a60066", "#3d013a", "#70000b"],
-    ["#00a69b", "#012f3d", "#700061"],
-    ["#a64d00", "#786e00", "#302300"],
-    ["#005237", "#0088ff", "#090030"],
-    ["#0b5200", "#6a8200", "#615100"],
-    ["#00785a", "#003c46", "#500078"],
-    ["#8c005a", "#46003c", "#005078"],
-    ["#006428", "#009678", "#00283c"],
-    ["#783c00", "#5a5a00", "#281e00"],
-    ["#005a6e", "#008cb4", "#140046"]
+    "linear-gradient(139deg, rgba(255, 0, 0, 0.23) 0%, rgba(92, 13, 13, 0) 100%)",
+    "linear-gradient(239deg, rgba(0, 255, 47, 0.23) 0%, rgba(42, 92, 13, 0) 100%)",
+    "linear-gradient(239deg, rgba(0, 98, 255, 0.23) 0%, rgba(0, 255, 251, 0) 100%)",
+    "linear-gradient(239deg, rgba(255, 0, 242, 0.23) 0%, rgba(102, 0, 56, 0) 100%)"
 ];
 
-let current = 0;
-let next = 1;
-let progress = 0;
+let lastIndex = -1;
 
-function lerp(a, b, t) {
-    return a + (b - a) * t;
-}
+function updateBackgroundOnScroll() {
+    const scrollY = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
 
-function hexToRgb(hex) {
-    const bigint = parseInt(hex.replace("#", ""), 16);
-    return [
-        (bigint >> 16) & 255,
-        (bigint >> 8) & 255,
-        bigint & 255
-    ];
-}
+    const progress = docHeight > 0 ? scrollY / docHeight : 0;
 
-function rgbToCss([r, g, b]) {
-    return `rgb(${r}, ${g}, ${b})`;
-}
-
-function interpolateColor(c1, c2, t) {
-    return [
-        Math.round(lerp(c1[0], c2[0], t)),
-        Math.round(lerp(c1[1], c2[1], t)),
-        Math.round(lerp(c1[2], c2[2], t))
-    ];
-}
-
-function updateGradient() {
-    progress += 0.002; // SPEED CONTROL (lower = slower)
-
-    if (progress >= 1) {
-        progress = 0;
-        current = next;
-        next = (next + 1) % gradients.length;
-    }
-
-    const c1 = gradients[current].map(hexToRgb);
-    const c2 = gradients[next].map(hexToRgb);
-
-    const blended = c1.map((color, i) =>
-        interpolateColor(color, c2[i], progress)
+    const index = Math.min(
+        gradients.length - 1,
+        Math.floor(progress * gradients.length)
     );
 
- const gradientString = `
-    linear-gradient(120deg,
-    ${rgbToCss(blended[0])},
-    ${rgbToCss(blended[1])},
-    ${rgbToCss(blended[2])})
-`;
-
-document.body.style.background = gradientString;
-
-if (logo) {
-    logo.style.backgroundImage = gradientString;
+    if (index !== lastIndex) {
+        lastIndex = index;
+        document.body.style.background = gradients[index];
+    }
 }
 
-    requestAnimationFrame(updateGradient);
-}
-
-updateGradient();
+window.addEventListener("scroll", updateBackgroundOnScroll);
+window.addEventListener("load", updateBackgroundOnScroll);
 
 /* ===== BACKGROUND MUSIC ===== */
 
