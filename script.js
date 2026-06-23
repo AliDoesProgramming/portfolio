@@ -222,9 +222,11 @@ if (showMoreBtn && moreGallery) {
         const hiddenImages = moreGallery.querySelectorAll('img[data-src]');
 
         hiddenImages.forEach(img => {
-            const realSrc = img.getAttribute('data-src');
-            if (!img.getAttribute('src') && realSrc) {
-                img.src = realSrc;
+            if (!img.getAttribute('src') || img.getAttribute('src').startsWith('data:image/gif;base64')) {
+                const realSrc = img.getAttribute('data-src');
+                if (realSrc) {
+                    img.src = realSrc;
+                }
             }
         });
 
