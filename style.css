@@ -6,7 +6,26 @@
 }
 
 body {
-    background: #050505;
+    min-height: 300vh; /* important: gives scroll space for gradient movement */
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 0, 242, 1) 0%,
+        rgba(131, 83, 0, 1) 10%,
+        rgba(46, 102, 0, 1) 20%,
+        rgba(10, 207, 0, 1) 30%,
+        rgba(0, 82, 102, 1) 40%,
+        rgba(0, 153, 130, 1) 50%,
+        rgba(0, 26, 153, 1) 60%,
+        rgba(82, 0, 153, 1) 70%,
+        rgba(150, 0, 153, 1) 80%,
+        rgba(153, 0, 87, 1) 90%,
+        rgba(153, 0, 0, 1) 100%
+    );
+
+    background-attachment: fixed;
+    background-size: cover;
+    
     position: relative;
     overflow-x: hidden;
     color: #fff;
@@ -15,14 +34,6 @@ body {
     scroll-behavior: smooth;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: var(--bg-gradient, transparent);
-    transition: background 0.4s ease;
-}
 
 /* NAV LEFT */
 .nav-left {
