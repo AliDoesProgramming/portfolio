@@ -158,7 +158,7 @@ section, header {
 
 /* INFO BOXES */
 .info-box {
-    background: rgba(0,0,0,0.45);
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(1, 26, 0, 1) 100%);
     border: 1px solid #1f1f1f;
     border-radius: 14px;
     padding: 34px 40px;
@@ -187,7 +187,7 @@ section, header {
 .container-box {
     max-width: 90%;
     width: 80%;
-    background: rgba(0, 74, 13, 0.2);
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(1, 26, 0, 1) 100%);
     border: 1px solid #1f1f1f;
     border-radius: 14px;
     padding: 34px 40px;
