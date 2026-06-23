@@ -18,8 +18,11 @@ function applyTransform() {
 
 galleryItems.forEach(item => {
     item.addEventListener("click", () => {
+        const src = item.getAttribute("src") || item.getAttribute("data-src");
+        if (!src) return;
+
         lightbox.style.display = "flex";
-        lightboxImg.src = item.src;
+        lightboxImg.src = src;
 
         scale = 1;
         translateX = 0;
@@ -58,7 +61,6 @@ lightboxImg.addEventListener("wheel", e => {
     scale += e.deltaY * -zoomSpeed * 0.01;
     scale = Math.min(Math.max(1, scale), 4);
 
-    // keep zoom centered on cursor
     const rect = lightboxImg.getBoundingClientRect();
     const offsetX = e.clientX - rect.left - rect.width / 2;
     const offsetY = e.clientY - rect.top - rect.height / 2;
@@ -71,7 +73,7 @@ lightboxImg.addEventListener("wheel", e => {
 
 /* ===== CLICK + DRAG TO PAN ===== */
 lightboxImg.addEventListener("mousedown", e => {
-    if (scale === 1) return; // no drag if not zoomed
+    if (scale === 1) return;
 
     isDragging = true;
     startX = e.clientX - translateX;
@@ -127,7 +129,6 @@ window.addEventListener("load", revealOnScroll);
 /* ===== LOGO FONT CYCLER (Dancing Script <-> random system fonts; no immediate repeats) ===== */
 const logo = document.querySelector('.nav-logo');
 
-// system-safe fonts array
 const fonts = [
     "Arial, sans-serif",
     "Verdana, sans-serif",
@@ -154,7 +155,6 @@ let isDancing = true;
 function changeLogoFont() {
     if (!logo) return;
     if (isDancing) {
-        // pick a random font not equal to lastRandomFont
         let newFont;
         do {
             newFont = fonts[Math.floor(Math.random() * fonts.length)];
@@ -162,13 +162,11 @@ function changeLogoFont() {
         lastRandomFont = newFont;
         logo.style.fontFamily = newFont;
     } else {
-        // back to Dancing Script
         logo.style.fontFamily = "'Dancing Script', cursive";
     }
     isDancing = !isDancing;
 }
 
-// change font every 800ms
 setInterval(changeLogoFont, 800);
 
 /* ===== MOBILE MENU TOGGLE ===== */
@@ -197,7 +195,6 @@ if (mobileToggle) {
 }
 mobileClose?.addEventListener('click', closeMobileMenu);
 
-// mobile links smooth scroll + close menu
 document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', e => {
         const targetId = link.getAttribute('data-target');
@@ -211,27 +208,29 @@ document.querySelectorAll('.mobile-link').forEach(link => {
     });
 });
 
-// close mobile menu on ESC
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMobileMenu();
 });
 
 
-/* ===== BACKGROUND MUSIC ===== */
+/* ===== SHOW MORE GALLERY ===== */
+const showMoreBtn = document.getElementById('showMoreBtn');
+const moreGallery = document.getElementById('moreGallery');
 
-const bgMusic = document.getElementById("bgMusic");
+if (showMoreBtn && moreGallery) {
+    showMoreBtn.addEventListener('click', () => {
+        const hiddenImages = moreGallery.querySelectorAll('img[data-src]');
 
-if (bgMusic) {
+        hiddenImages.forEach(img => {
+            const realSrc = img.getAttribute('data-src');
+            if (!img.getAttribute('src') && realSrc) {
+                img.src = realSrc;
+            }
+        });
 
-    bgMusic.volume = 0.2;
-
-    function startMusic() {
-        bgMusic.play().catch(() => {});
-        
-        document.removeEventListener("click", startMusic);
-        document.removeEventListener("keydown", startMusic);
-    }
-
-    document.addEventListener("click", startMusic);
-    document.addEventListener("keydown", startMusic);
+        moreGallery.classList.add('visible');
+        moreGallery.setAttribute('aria-hidden', 'false');
+        showMoreBtn.setAttribute('aria-expanded', 'true');
+        showMoreBtn.style.display = 'none';
+    });
 }
