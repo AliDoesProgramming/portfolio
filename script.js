@@ -220,33 +220,78 @@ document.addEventListener('keydown', (e) => {
 /* ===== SCROLL-BASED BACKGROUND GRADIENT SYSTEM ===== */
 
 const gradients = [
-  "linear-gradient(139deg, rgba(255, 0, 0, 0.45) 0%, rgba(92, 13, 13, 0) 99%)",
-  "linear-gradient(239deg, rgba(0, 255, 47, 0.35) 0%, rgba(42, 92, 13, 0) 99%)",
-  "linear-gradient(239deg, rgba(0, 98, 255, 0.35) 0%, rgba(0, 255, 251, 0) 99%)",
-  "linear-gradient(239deg, rgba(255, 0, 242, 0.35) 0%, rgba(102, 0, 56, 0) 99%)"
+  [
+    [255, 0, 0],
+    [92, 13, 13]
+  ],
+  [
+    [0, 255, 47],
+    [42, 92, 13]
+  ],
+  [
+    [0, 98, 255],
+    [0, 255, 251]
+  ],
+  [
+    [255, 0, 242],
+    [102, 0, 56]
+  ]
 ];
 
-let lastIndex = -1;
+let current = 0;
+let target = 1;
+let progress = 0;
 
-function updateBackgroundOnScroll() {
-    const scrollY = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-
-    const progress = docHeight > 0 ? scrollY / docHeight : 0;
-
-    const index = Math.min(
-        gradients.length - 1,
-        Math.floor(progress * gradients.length)
-    );
-
-    if (index !== lastIndex) {
-        lastIndex = index;
-        document.body.style.setProperty("--bg-gradient", gradients[index]);
-    }
+function lerp(a, b, t) {
+  return a + (b - a) * t;
 }
 
-window.addEventListener("scroll", updateBackgroundOnScroll);
-window.addEventListener("load", updateBackgroundOnScroll);
+function mixColor(c1, c2, t) {
+  return [
+    Math.round(lerp(c1[0], c2[0], t)),
+    Math.round(lerp(c1[1], c2[1], t)),
+    Math.round(lerp(c1[2], c2[2], t))
+  ];
+}
+
+function rgb(c) {
+  return `rgb(${c[0]}, ${c[1]}, ${c[2]})`;
+}
+
+function getScrollProgress() {
+  const y = window.scrollY || 0;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  return h > 0 ? y / h : 0;
+}
+
+function loop() {
+  const p = getScrollProgress();
+
+  target = Math.floor(p * gradients.length);
+  target = Math.min(gradients.length - 1, target);
+
+  if (target !== current) {
+    progress += 0.02; // tween speed
+
+    if (progress >= 1) {
+      progress = 0;
+      current = target;
+    }
+  }
+
+  const c1 = gradients[current];
+  const c2 = gradients[target];
+
+  const top = mixColor(c1[0], c2[0], progress);
+  const bottom = mixColor(c1[1], c2[1], progress);
+
+  document.body.style.backgroundImage =
+    `linear-gradient(120deg, ${rgb(top)}, ${rgb(bottom)})`;
+
+  requestAnimationFrame(loop);
+}
+
+loop();
 
 /* ===== BACKGROUND MUSIC ===== */
 
