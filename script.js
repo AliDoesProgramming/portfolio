@@ -1,4 +1,4 @@
-/* ===== LIGHTBOX WITH ZOOM + DRAG PAN + SCROLL LOCK ===== */
+/* ===== LIGHTBOX ===== */
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const galleryItems = document.querySelectorAll(".gallery-item");
@@ -16,13 +16,21 @@ function applyTransform() {
         `translate(${translateX}px, ${translateY}px) scale(${scale})`;
 }
 
+/* ===== OPEN IMAGE (PREVIEW → HIGH RES SWAP) ===== */
 galleryItems.forEach(item => {
     item.addEventListener("click", () => {
-        const src = item.getAttribute("src") || item.getAttribute("data-src");
-        if (!src) return;
 
+        const preview =
+            item.getAttribute("src") ||
+            item.getAttribute("data-src");
+
+        const full =
+            item.getAttribute("data-full") ||
+            preview;
+
+        // show preview instantly
         lightbox.style.display = "flex";
-        lightboxImg.src = src;
+        lightboxImg.src = preview;
 
         scale = 1;
         translateX = 0;
@@ -30,9 +38,18 @@ galleryItems.forEach(item => {
         applyTransform();
 
         document.body.style.overflow = "hidden";
+
+        // preload high-res
+        const img = new Image();
+        img.src = full;
+
+        img.onload = () => {
+            lightboxImg.src = full;
+        };
     });
 });
 
+/* ===== CLOSE ===== */
 function closeLightbox() {
     lightbox.style.display = "none";
     lightboxImg.src = "";
@@ -51,7 +68,7 @@ lightbox.addEventListener("click", e => {
     if (e.target === lightbox) closeLightbox();
 });
 
-/* ===== ZOOM WITH MOUSE WHEEL ===== */
+/* ===== ZOOM ===== */
 lightboxImg.addEventListener("wheel", e => {
     e.preventDefault();
 
@@ -71,7 +88,7 @@ lightboxImg.addEventListener("wheel", e => {
     applyTransform();
 }, { passive: false });
 
-/* ===== CLICK + DRAG TO PAN ===== */
+/* ===== DRAG ===== */
 lightboxImg.addEventListener("mousedown", e => {
     if (scale === 1) return;
 
